@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #red{
+      background-color: red;
+      padding: 5px;
+      width: 65px;
+      border-radius: 10px;
+    }
+    #yellow{
+      background-color: yellow;
+      padding: 5px;
+      width: 65px;
+      border-radius: 10px;
+    }
+    #green{
+      background-color: green;
+      padding: 5px;
+      width: 65px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><div id="red"><input type="button" value="on" id="red-on"><input type="button" value="off" id="red-off"></div></li>
+    <li><div id="yellow"><input type="button" value="on" id="yellow-on"><input type="button" value="off" id="yellow-off"></div></li>
+    <li><div id="green"><input type="button" value="on" id="green-on"><input type="button" value="off" id="green-off"></div></li>
+  </ul>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    $(document).on('ready', function(){
+      var socket = io();
+      $("#red-on").on("click", function(){
+        //console.log(0);
+        socket.emit('chat message', 0);
+      });
+      $("#red-off").on("click", function(){
+        //console.log(1);
+        socket.emit('chat message', 1);
+      });
+      $("#yellow-on").on("click", function(){
+        //console.log(2);
+        socket.emit('chat message', 2);
+      });
+      $("#yellow-off").on("click", function(){
+        //console.log(3);
+        socket.emit('chat message', 3);
+      });
+      $("#green-on").on("click", function(){
+        //console.log(4);
+        socket.emit('chat message', 4);
+      });
+      $("#green-off").on("click", function(){
+        //console.log(5);
+        socket.emit('chat message', 5);
+      });
+    })
+  </script>
+</body>
+</html>
